@@ -1,0 +1,12 @@
+#spinner-container {
+  border-style: solid;
+  border-color: transparent;
+  border-radius: 50%;
+  animation: loading 1s ease infinite;
+
+  @keyframes loading {
+    to {
+      transform: rotate(1turn);
+    }
+  }
+}
