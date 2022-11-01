@@ -9,7 +9,6 @@ import Spinner from './components/Spinner/Spinner'
 
 // TODO
 // thumbnails en hover
-// spinner
 
 const logins = [
   'antoinedaniel',
@@ -19,7 +18,7 @@ const logins = [
   'etoiles',
   'mynthos',
   'angledroit',
-  'bagherajones',
+  'bagherajones'
 ]
 
 const App = () => {
@@ -31,14 +30,17 @@ const App = () => {
   useEffect(() => {
     if (token !== undefined) {return}
 
-    axios.get('http://192.168.165.134:8080/getToken')
+    axios.get('http://localhost:8080/getToken')
       .then((res) => setToken(res?.data))
   }, [])
 
   useEffect(() => {
     if (token === undefined) {return}
 
-    axios.post('http://192.168.165.134:8080/getInfos', {token: token, logins: logins})
+    axios.post(
+      'http://localhost:8080/getInfos',
+      {token: token, logins: logins}
+    )
       .then((res) => setInfos(res?.data))
   }, [token])
 
